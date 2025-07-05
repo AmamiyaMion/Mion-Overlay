@@ -20,10 +20,10 @@ RDEPEND="libcap? ( sys-libs/libcap )
 DEPEND="${RDEPEND}"
 BDEPEND="dev-build/autoconf"
 
-src_prepare() {
-    default
-    eautoreconf
-}
+# src_prepare() {
+#     default
+#     eautoreconf
+# }
 
 src_configure() {
 	local conf=( ./configure )
