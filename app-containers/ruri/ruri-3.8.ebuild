@@ -1,12 +1,12 @@
 EAPI=8
 inherit autotools
 DESCRIPTION="Linux container, with zero runtime dependency (Lightweight User-friendly Linux-container Implementation)"
-HOMEPAGE="https://github.com/Moe-hacker/ruri"
+HOMEPAGE="https://github.com/RuriOSS/ruri"
 if [[ ${PV} == 9999* ]]; then 
     inherit git-r3
-	EGIT_REPO_URI="https://github.com/Moe-hacker/ruri.git"
+	EGIT_REPO_URI="https://github.com/RuriOSS/ruri.git"
 else
-    SRC_URI="https://github.com/Moe-hacker/ruri/archive/refs/tags/v${PV}.tar.gz"
+    SRC_URI="https://github.com/RuriOSS/ruri/archive/refs/tags/v${PV}.tar.gz"
     KEYWORDS="~amd64 ~aarch64"
 fi
 LICENSE="MIT"
@@ -15,15 +15,11 @@ SLOT="0"
 IUSE="coreonly +libcap +libseccomp +rurienv +static debug dev"
 
 RDEPEND="libcap? ( sys-libs/libcap )
-         libseccomp? ( sys-libs/libseccomp )"
+         libseccomp? ( sys-libs/libseccomp )
+         static? ( sys-libs/libcap[static-libs] sys-libs/libseccomp[static-libs] )"
 
 DEPEND="${RDEPEND}"
 BDEPEND="dev-build/autoconf"
-
-# src_prepare() {
-#     default
-#     eautoreconf
-# }
 
 src_configure() {
 	local conf=( ./configure )
