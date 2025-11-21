@@ -14,7 +14,8 @@ RDEPEND="x11-libs/gtk+
          dev-libs/nss
          media-libs/alsa-lib
          sys-libs/libxcrypt
-         x11-libs/libnotify"
+         x11-libs/libnotify
+         media-video/ffmpeg[chromium]"
 S="${WORKDIR}"
 src_unpack() {
     unpack_deb ${A}
